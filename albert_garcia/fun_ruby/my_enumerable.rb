@@ -1,7 +1,7 @@
 module MyEnumerable
     def my_each
         for i in self
-            puts i * 10
+            yield i
         end
     end
   end
