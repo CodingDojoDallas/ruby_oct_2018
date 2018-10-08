@@ -1,0 +1,39 @@
+1.  (1..10).each{ |i| puts i }
+
+2.  (0..3000).each{ |i| puts i if i.odd? }
+
+3.  
+
+def iterate(list):
+	list.each{ |i| puts i }
+end
+
+
+4. [0,2,3]
+
+def sumList(list):
+	sum = 0
+	list.each{ |i| sum+=i }
+	print sum
+end
+
+5
+
+def sumList(list):
+	list.each do |i|
+		sum+=i
+		puts sum
+end
+
+0
+2
+5
+
+
+
+
+def five(value):
+	if i == 5
+	print i
+	end
+end
