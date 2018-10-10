@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <title>Dojo Dashboard</title>
+    </head>
+    <body>
+        <h1>Welcome to the Dojo Dashboard</h1>
+        <h2>Listing <%= @count%> Dojos</h2>
+        <table>
+            <thead>
+                <th>Coding Dojo Branch</th>
+                <th>Street</th>
+                <th>City</th>
+                <th>State</th>
+            </thead>
+            <tbody>
+                <% @dojo.each do |dojo| %>
+                <tr>
+                    <td><%= dojo.branch%></td>
+                    <td><%= dojo.street%></td>
+                    <td><%= dojo.city%></td>
+                    <td><%= dojo.state%></td>
+                </tr>
+                <% end %>
+            </tbody>
+        </table>
+        <a href="/dojos/new">New Dojo</a>
+    </body>
+</html>

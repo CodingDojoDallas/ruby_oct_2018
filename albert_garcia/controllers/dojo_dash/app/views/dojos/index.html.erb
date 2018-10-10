@@ -1,0 +1,47 @@
+<html>
+    <head>
+        <title>Dojo Dashboard</title>
+        <style>
+            body h1 {
+                text-align: center;
+            }
+            td, th {
+                font-size: 24px;
+                border: 1px solid black;
+                padding: 5px;
+            }
+            table {
+                border-collapse: collapse;
+            }
+            th {
+                height: 80px;
+            }
+            tr:nth-child(even) {
+                background-color: #f2f2f2;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Welcome to the Dojo Dashboard</h1>
+        <h2>Listing <%= @count%> Dojos</h2>
+        <table>
+            <thead>
+                <th>Coding Dojo Branch</th>
+                <th>Street</th>
+                <th>City</th>
+                <th>State</th>
+            </thead>
+            <tbody>
+                <% @dojo.each do |dojo| %>
+                <tr>
+                    <td><%= dojo.branch%></td>
+                    <td><%= dojo.street%></td>
+                    <td><%= dojo.city%></td>
+                    <td><%= dojo.state%></td>
+                </tr>
+                <% end %>
+            </tbody>
+        </table>
+
+    </body>
+</html>

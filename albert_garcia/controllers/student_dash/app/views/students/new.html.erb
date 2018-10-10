@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <title>New Student</title>
+    </head>
+    <body>
+        <h1>New Student</h1>
+        <form action="/dojos/<%=@dojo.id%>/students" method="POST">
+        <input type="hidden"  name="authenticity_token" value="<%= form_authenticity_token %>">
+        <table>
+            <tr><td>First Name:</td></tr>
+            <tr><td><input type="text" name="student[first_name]"></td></tr>
+            <tr><td>Last Name:</td></tr>
+            <tr><td><input type="text" name="student[last_name]"></td></tr>
+            <tr><td>Email:</td></tr>
+            <tr><td><input type="text" name="student[email]"></td></tr>
+            <tr><td>Dojo:</td></tr>
+            <tr>
+                <td>
+                    <select name="student[dojo]">
+                        <option value="<%= @dojo.id%>"><%= @dojo.city%></option>
+                        <%@all.each do |x|%>
+                            <option value="<%= x.id%>"><%= x.city%></option>
+                        <%end%>
+                    </select>
+                </td>
+            </tr>
+        </table>
+        <button type="submit">Create</button>
+        </form>
+        <a class="a" href="/">Home</a>
+        <a href="/dojos/<%= @dojo.id%>/students"><%=@dojo.city%></a>
+    </body>
+</html>

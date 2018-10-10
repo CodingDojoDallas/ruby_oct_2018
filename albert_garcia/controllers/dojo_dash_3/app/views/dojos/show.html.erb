@@ -1,0 +1,9 @@
+<html>
+    <body>
+        <h1><%= @show.branch%></h1>
+        <h2>Address: <%= @show.street%></h2>
+        <h2>City: <%= @show.city%> State: <%= @show.state%></h2>
+        <a class="a" href="/">Home</a>
+        <a href="/dojos/<%= @show.id %>/edit">Edit</a>
+    </body>
+</html>

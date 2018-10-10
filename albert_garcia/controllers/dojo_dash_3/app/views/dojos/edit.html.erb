@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <title>Edit Dojo</title>
+    </head>
+    <body>
+        <form action="/update/<%= @edit_dojo.id %>" method="POST">
+        <input type="hidden"  name="authenticity_token" value="<%= form_authenticity_token %>">
+        <table>
+            <tr><td>Branch:</td></tr>
+            <tr><td><input type="text" name="dojo[branch]" value="<%= @edit_dojo.branch %>"></td></tr>
+            <tr><td>Street:</td></tr>
+            <tr><td><input type="text" name="dojo[street]" value="<%= @edit_dojo.street %>"></td></tr>
+            <tr><td>City:</td></tr>
+            <tr><td><input type="text" name="dojo[city]" value="<%= @edit_dojo.city %>"></td></tr>
+            <tr><td>State:</td></tr>
+            <tr><td><input type="text" name="dojo[state]" value="<%= @edit_dojo.state %>"></td></tr>
+        </table>
+        <button type="submit">Update</button>
+        </form>
+        <a class="a" href="/">Home</a>
+        <a href="/dojos/<%= @edit_dojo.id %>">Show</a>
+    </body>
+</html>

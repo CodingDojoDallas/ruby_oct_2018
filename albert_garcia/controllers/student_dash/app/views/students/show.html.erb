@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <title>Dojo Dashboard</title>
+        <style>
+            body h1 {
+                text-align: center;
+            }
+            td, th {
+                font-size: 18
+            }
+        </style>
+    </head>
+    <body>
+        <h1><%= @dojo.branch%>'s <%= @student.first_name%> <%= @student.last_name%></h1>
+        <h3>Email: <%= @student.email%> </h3>
+        <h2>Cohort</h2>
+        <table>
+            <thead>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+            </thead>
+            <tbody>
+                <% @other.each do |x| %>
+                <tr>
+                    <td><%= x.first_name%></td>
+                    <td><%= x.last_name%></td>
+                    <td><%= x.email%></td>
+                </tr>
+                <% end %>
+            </tbody>
+        </table>
+        <a class="a" href="/dojos/<%= @dojo.id%>/students">Home</a>
+        <a href="/dojos/<%= @dojo.id%>/students/<%= @student.id%>/edit">Edit</a>
+    </body>
+</html>
