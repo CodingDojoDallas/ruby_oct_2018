@@ -44,8 +44,18 @@ user = User.find(2)
 john = User.find_by(first_name: "John")
 # retrieving all the users with the first name John
 johns = User.where(first_name: "John")
-# retrieving all users with the last name Doe but only selecting the first name and last name column
+# retrieving all users with the last name Doe but only selecting the first name and last name column to display what is in select to be return
 does = User.where(last_name: "Doe").select(:first_name, :last_name)
+
+query for ORDERING
+
+Client.order(created_at: :desc)
+# OR
+Client.order(created_at: :asc)
+# OR
+Client.order("created_at DESC")
+# OR
+Client.order("created_at ASC")
 
 //UPDATING DATA
 # retrieving the user, setting the first name attribute to a different value then saving the record
@@ -150,3 +160,28 @@ class User < ActiveRecord::Base
 
   # ... omitted callback code for brevity
 end
+
+//HOW TO display error messages in rails CONSOLE & check validations
+user.errors.full_messages
+
+1. user = User.new
+2. user.valid?
+3. if not valid, =false then cannot save
+
+1. user.errors (will call back errors)
+
+1. user.errors.full_messages (will get a string of errors)
+
+//HOW to add columns into table
+
+$ rails generate migration AddEmailColumnToUsers email:string
+$ rake db:migrate:status
+$ rake db:migrate
+$ rake db:migrate:status
+
+//HOW to undo migrations
+
+$ rake db:rollback or $ rake db:rollback STEP=N (N is integer for N steps)
+
+
+//Relationships
