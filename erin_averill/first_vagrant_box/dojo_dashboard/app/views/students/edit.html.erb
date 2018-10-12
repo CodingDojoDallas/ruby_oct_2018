@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Edit the student</title>
+</head>
+<body>
+	<h1>Edit <%= @student.first_name %> <%= @student.last_name %></h1>
+	<form action='/dojos/<%= @dojo.id %>/students/<%= @student.id %>' method="POST">
+	<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+	<input type="hidden" name="_method" value="patch">
+	<p>First Name: <input type="text" name="student[first_name]" value="<%= @student.first_name %>"></p>
+	<p>Last Name: <input type="text" name="student[last_name]" value="<%= @student.last_name %>"></p>
+	<p>Email Address: <input type="text" name="student[email]" value="<%= @student.email %>"></p>
+	<p>Dojo:<select name="student[dojo_id]">
+	  			<option value="<%= @dojo.id %>"><%= @dojo.branch %></option>
+	  			<% @dojos.each do |dojo| %>
+	  				<% if dojo.id != @dojo.id %>
+	  					<option value="<%= dojo.id %>"><%= dojo.branch %></option>
+	  				<% end %>
+	  			<% end %>
+			</select></p>
+	<button type="submit" name="submit">Create</button>
+</form>
+</body>
+</html>

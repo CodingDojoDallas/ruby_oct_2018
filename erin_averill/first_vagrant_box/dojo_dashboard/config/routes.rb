@@ -2,6 +2,24 @@ Rails.application.routes.draw do
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
   get '/dojos' => "dojos#index"
+  post '/dojos' => "dojos#make"
+
+  get '/dojos/new' => "dojos#create"
+
+  get '/dojos/:id/edit' => "dojos#edit"
+
+  get '/dojos/:id' => "dojos#show"
+  patch '/dojos/:id' => "dojos#update"
+  delete '/dojos/:id' => "dojos#delete"
+  
+  get '/dojos/:id/students/new' => "students#new"
+  post '/dojos/:dojo_id/students' => "students#create"
+  get '/dojos/:dojo_id/students/:id' => "students#show"
+
+  get '/dojos/:dojo_id/students/:id/edit' => "students#edit"
+  patch '/dojos/:dojo_id/students/:id' => "students#update"
+
+  delete '/dojos/:dojo_id/students/:id' => "students#destroy"
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'

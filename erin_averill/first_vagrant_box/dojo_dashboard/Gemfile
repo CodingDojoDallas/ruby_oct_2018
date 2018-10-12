@@ -47,3 +47,5 @@ end
 gem 'rails-footnotes', '>= 4.0.0', '<5'
 
 gem 'hirb'
+
+gem 'strftime', '~> 1.0'

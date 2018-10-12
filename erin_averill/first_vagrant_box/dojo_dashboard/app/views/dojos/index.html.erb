@@ -5,11 +5,13 @@
 </head>
 <body>
 	<table>
+		<h1>Listing <%= @counter %> Dojos</h1>
   <tr>
     <th>Coding Dojo Branch</th>
     <th>Street</th> 
     <th>City</th>
     <th>State</th>
+    <th>Actions</th>
   </tr>
   <% @dojos.each do |dojo| %>
   <tr>
@@ -17,8 +19,14 @@
     <td><%= dojo.street %></td> 
     <td><%= dojo.city %></td> 
     <td><%= dojo.state %></td>
+    <td><a href="/dojos/<%= dojo.id %>">Show</a> | <a href="/dojos/<%= dojo.id %>/edit">Edit</a> | <a href="/dojos/<%= dojo.id %>" data-method='delete'>Destroy</a> <!-- <form action="/dojos/<%= dojo.id %>" method="POST">
+    	<input type="hidden" name="_method" value="delete">
+    	<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    	<input type="submit" value="destroy">
+    </form></td> -->
   </tr>
   <% end %>
 </table>
+<a href="/dojos/new">New Dojo</a>
 </body>
 </html>
