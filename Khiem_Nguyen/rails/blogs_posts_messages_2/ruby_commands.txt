@@ -1,0 +1,15 @@
+Comment.create(commentable: User.first, content:"Wazzup, this comment to a user from first User!")
+
+ Comment.create(commentable: Message.first, content:"Wazzup, this comment to a user from first message!")
+
+ Comment.create(commentable: Blog.first, content:"Wazzup, this comment to a user from first blog!")
+
+ Comment.create(commentable: Post.first, content:"Wazzup, this comment to a user from first post!")
+
+ comment1 = User.first.comments
+
+ content1 = Comment.first
+
+ content1.update(content:"hi riya!")
+
+ comment1.destroy
