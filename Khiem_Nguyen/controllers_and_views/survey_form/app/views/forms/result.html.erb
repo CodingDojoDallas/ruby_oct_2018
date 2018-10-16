@@ -1,0 +1,14 @@
+<style>
+* {
+    text-align: center;
+}
+
+</style>
+
+<h1><%= flash[:notice] %></h1>
+
+<h1>Submitted Information<h1>
+    <h2>Name: <%= session[:name] %> </h2>
+    <h2>Dojo: Location <%= session[:location] %> </h2>
+    <h2>Favorite Language: <%= session[:language] %> </h2>
+    <h2>Comment: <%= session[:comment] %> </h2>
