@@ -1,0 +1,27 @@
+<table class="table table-dark">
+  <thead>
+    <tr>
+      <th scope="col">Coding Dojo Branch</th>
+      <th scope="col">Street</th>
+      <th scope="col">City</th>
+      <th scope="col">State</th>
+    </tr>
+  </thead>
+  <tbody>
+      <% @dojos.each do |i| %>
+    <tr>
+      <td><%= i.branch%></td>
+      <td><%= i.street %></td>
+      <td><%= i.city %></td>
+      <td><%= i.state %></td>
+      <td>
+          <a href='/dojos/<%= i.id %>'>Show</a>
+          <a href='/dojos/<%= i.id %>/edit'>Edit</a>
+          <a href='/dojos/<%= i.id %>'data-method="delete">Destroy</a>
+
+    </tr>
+      <% end %>
+  </tbody>
+</table>
+
+<a href='/dojos/new'>New Dojo</a>
