@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>ThePosts</title>
+	<meta charset="utf-8">
+</head>
+<body>
+	<% content_for :left_column do %>
+	<h1>All the posts:</h1>
+	  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Post</th>
+        <th>Poster</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @posts.each do |post| %>
+      <tr>
+        <td><%= post.title %></td>
+        <td><%= post.content %></td>
+        <td><%= post.user.first_name %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
+
+<% content_for :middle_column do %>
+	<h1>Create a new post</h1>
+	<form action="/posts" method="POST">
+		<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+		<p>Title: <input type="text" name="post[title]"></p>
+		<p>Post: <input type="text" name="post[content]"></p>
+		<p>Name: <select name="post[user_id]" id="author">
+        <% @users.each do |user| %>
+        <option value="<%= user.id %>"><%= user.first_name %> <%= user.last_name %></option>
+        <% end %>
+      </select></p>
+		<button class="btn btn-info">Add</button>
+	</form>
+<% end %>
+
+<% content_for :right_column do %>
+	<h1><a href="/">Go back to users</a></h1>
+<% end %>
+</body>
+</html>

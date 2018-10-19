@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>ThreeColumnLayout</title>
+	<meta charset="utf-8">
+	<%= stylesheet_link_tag		'application', media: 'all', 'data-turbolink-track' => true %>
+	<%= javascript_include_tag	'application', 'data-turbolink-track' => true %>
+	<%= csrf_meta_tag %>
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4">
+				<%= yield :left_column %>
+			</div>
+			<div class="col-md-4">
+				<%= yield :middle_column %>
+			</div>
+			<div class="col-md-4">
+				<%= yield :right_column %>
+			</div>
+		</div>
+	</div>
+<%= yield %>
+
+</body>
+</html>
