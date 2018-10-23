@@ -1,0 +1,15 @@
+<html>
+    <head>
+        <title>Edit User</title>
+    </head>
+    <body>
+        <form action="/update/<%= @edit_user.id %>" method="POST">
+        <input type="hidden"  name="authenticity_token" value="<%= form_authenticity_token %>">
+        <table>
+            <tr><td>Name:</td></tr>
+            <tr><td><input type="text" name="name" value="<%= @edit_user.name %>"></td></tr>
+        </table>
+        <button type="submit">Update</button>
+        </form>
+    </body>
+</html>

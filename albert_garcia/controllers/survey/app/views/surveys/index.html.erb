@@ -1,0 +1,48 @@
+<html>
+    <head>
+        <title>Dojo Survey</title>
+        <style>
+            textarea {
+                display: block;
+            }
+        </style>
+    </head>
+    <body>
+        <form action="/submit" method="POST">
+        <input type="hidden"  name="authenticity_token" value="<%= form_authenticity_token %>">
+        <table>
+            <tr>
+                <td>Your Name:</td>
+                <td><input type="text" name="name"></td>
+            </tr>
+            <tr>
+                <td>Dojo Location:</td>
+                <td>
+                    <select name="location">
+                        <option value="Mountain View">Mountain View</option>
+                        <option value="San Jose">San Jose</option>
+                        <option value="Dallas">Dallas</option>
+                        <option value="Seattle">Seattle</option>
+                        <option value="Tulsa">Tulsa</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Favorite Language:</td>
+                <td>
+                    <select name="language">
+                        <option value="Javascript">Javascript</option>
+                        <option value="Python">Python</option>
+                        <option value="Ruby">Ruby</option>
+                        <option value="C#">C#</option>
+                        <option value="C++">C++</option>
+                    </select>
+                </td>
+            </tr>
+        </table>
+        <p>Comment (Optional):</p>
+        <textarea name="comment" cols="50" rows="3"></textarea>
+        <button type="submit">Submit</button>
+        </form>
+    </body>
+</html>

@@ -1,0 +1,46 @@
+<% content_for :left_column do %>
+    <table>
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Content</th>
+                <th>Creator</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @posts.each do |x| %>
+                <tr>
+                    <td><%= x.title %></td>
+                    <td><%= x.content %></td>
+                    <td><%= x.user.first_name %> <%= x.user.last_name %></td>
+                </tr>
+            <%end%>
+        </tbody>
+    </table>
+<% end %>
+<% content_for :middle_column do %>
+    <form action="/posts/create" method="POST">
+        <input type="hidden"  name="authenticity_token" value="<%= form_authenticity_token %>">
+        <table>        
+            <tr><td>Title:</td></tr>
+            <tr><td><input type="text" name="post[title]"></td></tr>
+            <tr><td>Content:</td></tr>
+            <tr><td><textarea name="post[content]" cols="30" rows="10"></textarea></td></tr>
+            <tr><td>User:</td></tr>
+            <tr>
+                <td>
+                    <select name="post[user_id]">
+                        <% @users.each do |x| %>
+                            <option value="<%= x.id %>"><%= x.first_name %> <%= x.last_name %></option>
+                        <% end %>
+                    </select>
+                </td>
+            </tr>
+        </table>
+        <button type="submit">Create</button>
+    </form>
+<% end %>
+<% content_for :right_column do %>
+    <h1>Go to Users Page</h1>
+    <a href="/users/index"><button type="button">All Users</button></a>
+<% end %>

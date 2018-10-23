@@ -1,0 +1,30 @@
+// Place all the styles related to the Students controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+body h1 {
+    text-align: center;
+}
+td, th {
+    font-size: 24px;
+    border: 1px solid black;
+    padding: 5px;
+}
+table {
+    border-collapse: collapse;
+}
+th {
+    height: 80px;
+}
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+.a {
+    margin-right: 5px;
+    border-right: 1px solid grey;
+    padding-right: 5px;
+}
+a {
+    margin-right: 5px;
+    padding-right: 5px;
+    font-size: 24px;
+}

@@ -1,0 +1,48 @@
+<html>
+    <head>
+        <title>Dojo Survey</title>
+        <style>
+            #flash {
+                display: block;
+                background-color: green;
+                height: 50px;
+                width: 100%;
+                border: 3px solid black;
+            }
+            .content {
+                display: block;
+                width: 100%;
+                border: 3px solid black;
+            }
+        </style>
+    </head>
+    <body>
+                <% flash.each do |key, value| %>
+                    <div id="flash">
+                        <%= value %>
+                    </div>
+                <%end%>
+        <div class="content">
+            <h1>Submitted Information</h1>
+            <table>
+                <tr>
+                    <td>Name:</td>
+                    <td><%= session[:survey]["name"] %></td>
+                </tr>
+                <tr>
+                    <td>Location:</td>
+                    <td><%= session[:survey]["location"] %></td>
+                </tr>
+                <tr>
+                    <td>Language:</td>
+                    <td><%= session[:survey]["language"] %></td>
+                </tr>
+                <tr>
+                    <td>Comment:</td>
+                    <td><%= session[:survey]["comment"] %></td>
+                </tr>
+            </table>
+            <a href="/"><button>Back</button></a>
+        </div>
+    </body>
+</html>
