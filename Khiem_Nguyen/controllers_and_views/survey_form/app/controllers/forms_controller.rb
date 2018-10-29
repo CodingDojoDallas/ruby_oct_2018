@@ -3,7 +3,7 @@ class FormsController < ApplicationController
   end
 
   def result
-     flash[:notice] = "Thanks for submitting this form! You have submitted this form #{session[:count]} times now"
+
   end
 
   def submit
@@ -17,6 +17,6 @@ class FormsController < ApplicationController
     session[:location] = params[:location]
     session[:language] = params[:language]
     session[:comment] = params[:comment]
-    redirect_to '/result'
+    redirect_to result_path, notice: "Thanks for submitting this form! You have submitted this form #{session[:count]} times now"
   end
 end
