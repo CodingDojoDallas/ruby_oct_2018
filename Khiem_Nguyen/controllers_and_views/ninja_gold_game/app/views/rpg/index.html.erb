@@ -1,0 +1,75 @@
+<style>
+    * {
+        outline: 1px solid blue;
+    }
+    #container {
+        width: 1000px;
+        margin: 0px auto;
+    }
+    #locationsbar{
+        text-align: center;
+    }
+    .box {
+        border: 1px solid black;
+        display: inline-block;
+        height: 200px;
+        width: 200px;
+        vertical-align: top;
+        text-align: center;
+        padding-top: 20px;
+        margin: 10px;
+    }
+    textarea {
+        height: 100px;
+        width: 500px;
+    }
+    #activity {
+        text-align: center;
+    }
+</style>
+
+<div id="container">
+    <h5> Your Gold: <%= session[:gold] %></h5>
+</div>
+<div id="locationsbar">
+    <div class="box">
+        <h2>Farm</h2>
+        <p>(earns 10-20 golds)</p>
+        <form action="/farm" method="post">
+            <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+            <button type="submit" class="btn btn-primary">Find Gold!</button>
+        </form>
+    </div>
+    <div class="box">
+        <h2>Cave</h2>
+        <p>(earns 5-10 golds)</p>
+        <form action="/cave" method="post">
+            <input type="hidden" name="authenticity_token" value="cave">
+            <button type="submit" class="btn btn-primary">Find Gold!</button>
+        </form>
+    </div>
+    <div class="box">
+        <h2>House</h2>
+        <p>(earns 2-5 golds)</p>
+        <form action="/house" method="post">
+            <input type="hidden" name="authenticity_token" value="house">
+            <button type="submit" class="btn btn-primary">Find Gold!</button>
+        </form>
+    </div>
+    <div class="box">
+        <h2>Casino</h2>
+        <p>(earns/takes 0-50 golds)</p>
+        <form action="/casino" method="post">
+            <input type="hidden" name="authenticity_token" value="casino">
+            <button type="submit" class="btn btn-primary">Find Gold!</button>
+        </form>
+    </div>
+    <div id="activity">
+        <h6>Activities:</h6>
+        <textarea>
+            <% session[:activities].reverse.each do |i| %>
+                <%= i['msg'] %>
+            <% end %>
+         </textarea>
+    </div>
+</div>
